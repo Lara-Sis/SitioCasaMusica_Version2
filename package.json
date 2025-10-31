@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "node dist/casa-musica-frontend/server/main.js",
+    "build": "ng build && ng run casa-musica-frontend:server",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:casa-musica-frontend": "node dist/casa-musica-frontend/server/server.mjs"
