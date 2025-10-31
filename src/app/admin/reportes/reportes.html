@@ -1,0 +1,72 @@
+<h1 class="page-title">Generador de Reportes</h1>
+
+<div class="card-container filter-card">
+  
+  <div class="filter-group">
+    <label>Tipo de Reporte</label>
+    <div class="report-tabs">
+      <button 
+        class="tab-btn"
+        [class.active]="reporteActivo === 'ventas'"
+        (click)="seleccionarReporte('ventas')">
+        Ventas
+      </button>
+      <button 
+        class="tab-btn"
+        [class.active]="reporteActivo === 'inventario'"
+        (click)="seleccionarReporte('inventario')">
+        Inventario
+      </button>
+      <button 
+        class="tab-btn"
+        [class.active]="reporteActivo === 'clientes'"
+        (click)="seleccionarReporte('clientes')">
+        Clientes
+      </button>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label>Rango de Fechas</label>
+    <div class="date-range">
+      <input type="date" name="fechaDesde" [(ngModel)]="fechaDesde">
+      <span>hasta</span>
+      <input type="date" name="fechaHasta" [(ngModel)]="fechaHasta">
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button class="btn btn-primary" (click)="generarReporte()">
+      Generar Reporte
+    </button>
+    <button class="btn btn-secondary">
+      Exportar a CSV
+    </button>
+  </div>
+</div>
+
+
+<div class="card-container report-content">
+  <h3 class="card-title">
+    Resultados: Reporte de {{ reporteActivo | titlecase }}
+  </h3>
+
+  <div class="table-container-report">
+    <table>
+      <thead>
+        <tr>
+          <th>Producto/Cliente</th>
+          <th>Unidades Vendidas</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fila of datosReporte">
+          <td>{{ fila.col1 }}</td>
+          <td>{{ fila.col2 }}</td>
+          <td>{{ fila.col3 }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

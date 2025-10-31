@@ -1,0 +1,27 @@
+<div class="login-container">
+  <form class="login-form" (ngSubmit)="handleLogin()">
+    <h1 class="page-title">Iniciar Sesión</h1>
+    
+    <div class="tipo-selector">
+      <label>
+        <input type="radio" name="tipo" value="Cliente" [(ngModel)]="tipo">
+        Cliente
+      </label>
+      <label>
+        <input type="radio" name="tipo" value="Empleado" [(ngModel)]="tipo">
+        Empleado
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Nombre de Usuario</label>
+      <input type_="" id="nombre" [(ngModel)]="nombre" name="nombre">
+    </div>
+    <div class="form-group">
+      <label for="contrasena">Contraseña</label>
+      <input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena">
+    </div>
+
+    <button type="submit" class="btn btn-cta-large">Aceptar</button>
+  </form>
+</div>
